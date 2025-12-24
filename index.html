@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Develop metacognitive skills through guided exercises, reflective journaling, and progress tracking">
+  <title>MetaMind - Metacognition Development App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <div class="logo">MetaMind</div>
+      <nav>
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#exercises" class="nav-link">Exercises</a>
+        <a href="#journal" class="nav-link">Journal</a>
+        <a href="#progress" class="nav-link">Progress</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="container">
+    <div class="hero">
+      <h1>Think About Thinking</h1>
+      <p>Develop powerful metacognitive skills to enhance your learning, problem-solving, and self-awareness. Master the art of understanding your own thought processes.</p>
+      <button class="btn btn-primary" onclick="scrollToSection('exercises')">Start Your Journey</button>
+    </div>
+
+    <!-- Three Phases -->
+    <div class="grid grid-3">
+      <div class="glass-card phase-card planning">
+        <div class="phase-icon">🎯</div>
+        <h3>Planning</h3>
+        <p>Set clear goals, strategize your approach, and activate prior knowledge before diving into tasks.</p>
+        <button class="btn btn-secondary" onclick="openExercise('planning')">Start Planning</button>
+      </div>
+
+      <div class="glass-card phase-card monitoring">
+        <div class="phase-icon">👁️</div>
+        <h3>Monitoring</h3>
+        <p>Check your comprehension, ask yourself questions, and track your progress as you learn.</p>
+        <button class="btn btn-secondary" onclick="openExercise('monitoring')">Start Monitoring</button>
+      </div>
+
+      <div class="glass-card phase-card evaluating">
+        <div class="phase-icon">📊</div>
+        <h3>Evaluating</h3>
+        <p>Reflect on strategy effectiveness, assess your understanding, and identify areas for improvement.</p>
+        <button class="btn btn-secondary" onclick="openExercise('evaluating')">Start Evaluating</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Journal Section -->
+  <section id="journal" class="container journal-container">
+    <div class="section-header">
+      <h2>Reflective Journal</h2>
+      <p>Daily reflection enhances self-awareness and deepens learning</p>
+    </div>
+
+    <div class="journal-prompt">
+      <h3>Today's Prompt</h3>
+      <p id="current-prompt">Loading prompt...</p>
+      <button class="btn btn-ghost prompt-refresh" onclick="refreshPrompt()">New Prompt</button>
+    </div>
+
+    <div class="glass-card">
+      <textarea id="journal-text" placeholder="Write your thoughts here..."></textarea>
+      <div style="margin-top: 1rem; display: flex; gap: 1rem;">
+        <button class="btn btn-primary" onclick="saveJournalEntry()">Save Entry</button>
+        <button class="btn btn-secondary" onclick="clearJournal()">Clear</button>
+      </div>
+    </div>
+
+    <!-- Journal History -->
+    <div style="margin-top: 2rem;">
+      <h3 style="margin-bottom: 1rem;">Recent Entries</h3>
+      <div id="journal-history"></div>
+    </div>
+  </section>
+
+  <!-- Progress Section -->
+  <section id="progress" class="container">
+    <div class="section-header">
+      <h2>Your Progress</h2>
+      <p>Track your metacognitive development journey</p>
+    </div>
+
+    <div class="progress-stats">
+      <div class="stat-card streak">
+        <div class="stat-value" id="streak-count">0</div>
+        <div class="stat-label">Day Streak 🔥</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-value" id="journal-count">0</div>
+        <div class="stat-label">Journal Entries</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-value" id="exercise-count">0</div>
+        <div class="stat-label">Exercises Completed</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-value" id="days-active">0</div>
+        <div class="stat-label">Days Active</div>
+      </div>
+    </div>
+
+    <!-- Achievements -->
+    <div class="glass-card">
+      <h3 style="margin-bottom: 1rem;">Achievements</h3>
+      <div id="achievements-list">
+        <p style="color: var(--text-muted);">Complete exercises and journal entries to unlock achievements!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Exercise Modal -->
+  <div id="exercise-modal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeExerciseModal()">✕</button>
+      <h2 id="exercise-title">Exercise</h2>
+      <div id="exercise-content"></div>
+      <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+        <button class="btn btn-primary" onclick="completeExercise()">Complete Exercise</button>
+        <button class="btn btn-secondary" onclick="closeExerciseModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
