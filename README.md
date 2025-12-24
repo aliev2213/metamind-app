@@ -12,7 +12,13 @@ Develop powerful metacognitive skills through guided exercises, reflective journ
 
 ## Live Demo
 
-Visit the live app: [Coming soon]
+**GitHub Repository:** https://github.com/aliev2213/metamind-app
+
+To deploy on Vercel:
+1. Go to https://vercel.com
+2. Click "Import Project"
+3. Connect your GitHub and select the `metamind-app` repository
+4. Click "Deploy" - Vercel will auto-detect it's a static site
 
 ## Local Development
 
